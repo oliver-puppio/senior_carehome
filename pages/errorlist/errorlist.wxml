@@ -1,0 +1,189 @@
+<!--pages/errorlist/errorlist.wxml-->
+<view class="background">
+    <image src="/icons/bg.png" mode="scaleToFill"></image>
+</view>
+
+<!-- 护工界面 -->
+<view hidden="{{!isworker}}">
+  <!-- 没有信息 -->
+  <view class="noinfo" hidden="{{errorlist.length}}">
+    <view class="noinfoimage">
+      <image mode="widthFix" src="/icons/noinfo.png"></image>
+    </view>
+    <view class="noinfotip">暂无异常记录</view>
+  </view>
+
+  <view class="errorlog" wx:for="{{errorlist}}" wx:key="{{id}}"> 
+    <!-- 还未确认 -->
+    <view class="erroritem" wx:if="{{item.enterTime == null}}">
+      <view class="namesexbutton">
+        <view class="namesexinfo">
+          <view class="nameinfo">{{item["name"]}}</view>
+          <view class="sexinfo">
+            <image mode="widthFix" src="{{item['gender'] == '男' ? '/icons/male.png' : '/icons/female.png'}}"></image>
+          </view>
+        </view>
+        <view class="buttonview">
+          <button size="mini" style="font-size: 32rpx; color: tomato;" bindtap="enter" data-value="{{item.id}}">待确认</button>
+        </view>
+      </view>
+
+      <view class="place">
+        <view class="placeimage">
+          <image mode="widthFix" src="/icons/reasonplace.png"></image>
+        </view>
+        <view class="placedata">{{item.location}}</view>
+      </view>
+
+      <view class="reasonnurse">
+        <view class="reason">
+          <image mode="widthFix" src="/icons/reason.png"></image>
+          <view class="reasontype">{{item.type == 1 ? "数据异常" : "离床未归"}}</view>
+        </view>
+      </view>
+
+      <view class="alltimeresult">
+        <view class="timeresult">事件发生时间：{{item.startTime}}</view>
+        <view class="timeresult">警报确认时间：暂无</view>
+        <view class="timeresult">处理完成时间：暂无</view>
+        <view class="timeresult">异常处理结果：暂无</view>
+      </view>
+    </view>
+
+    <!-- 还未处理 -->
+    <view class="erroritem"  wx:if="{{item.endTime == null && item.enterTime != null}}">
+      <view class="namesexbutton">
+        <view class="namesexinfo">
+          <view class="nameinfo">{{item.name}}</view>
+          <view class="sexinfo">
+            <image mode="widthFix" src="{{item['gender'] == '男' ? '/icons/male.png' : '/icons/female.png'}}"></image>
+          </view>
+        </view>
+        <navigator class="buttonview" url="/pages/handleresult/handleresult?errorid={{item.id}}&name={{item.name}}&gender={{item.gender}}&seniorid={{item.seniorID}}&location={{item.location}}&handler={{item.handler}}&type={{item.type}}&starttime={{item.startTime}}&entertime={{item.enterTime}}">
+        <!-- <view class="buttonview"> -->
+          <button size="mini" style="font-size: 32rpx; color:orange;">待处理</button>
+          <!-- bindtap="handle" data-value="{{item}}" -->
+        <!-- </view> -->
+        </navigator>
+      </view>
+
+      <view class="place">
+        <view class="placeimage">
+          <image mode="widthFix" src="/icons/reasonplace.png"></image>
+        </view>
+        <view class="placedata">{{item.location}}</view>
+      </view>
+
+      <view class="reasonnurse">
+        <view class="reason">
+          <image mode="widthFix" src="/icons/reason.png"></image>
+          <view class="reasontype">{{item.type == 1 ? "数据异常" : "离床未归"}}</view>
+        </view>
+        <view class="nurse">
+          <image mode="widthFix" src="/icons/nurse.png"></image>
+          <view class="nursename">{{item.handler}}</view>
+        </view>
+      </view>
+
+      <view class="alltimeresult">
+        <view class="timeresult">事件发生时间：{{item.startTime}}</view>
+        <view class="timeresult">警报确认时间：{{item.enterTime}}</view>
+        <view class="timeresult">处理完成时间：暂无</view>
+        <view class="timeresult">异常处理结果：暂无</view>
+      </view>
+    </view>
+
+    <!-- 已经结束 -->
+    <view class="erroritem"  wx:if="{{item.endTime != null}}">
+      <view class="namesexbutton">
+        <view class="namesexinfo">
+          <view class="nameinfo">{{item.name}}</view>
+          <view class="sexinfo">
+            <image mode="widthFix" src="{{item['gender'] == '男' ? '/icons/male.png' : '/icons/female.png'}}"></image>
+          </view>
+        </view>
+        <view class="buttonview">
+          <button disabled size="mini" style="font-size: 32rpx">已完成</button>
+        </view>
+      </view>
+
+      <view class="place">
+        <view class="placeimage">
+          <image mode="widthFix" src="/icons/reasonplace.png"></image>
+        </view>
+        <view class="placedata">{{item.location}}</view>
+      </view>
+
+      <view class="reasonnurse">
+        <view class="reason">
+          <image mode="widthFix" src="/icons/reason.png"></image>
+          <view class="reasontype">{{item.type == 1 ? "数据异常" : "离床未归"}}</view>
+        </view>
+        <view class="nurse">
+          <image mode="widthFix" src="/icons/nurse.png"></image>
+          <view class="nursename">{{item.handler}}</view>
+        </view>
+      </view>
+
+      <view class="alltimeresult">
+        <view class="timeresult">事件发生时间：{{item.startTime}}</view>
+        <view class="timeresult">警报确认时间：{{item.enterTime}}</view>
+        <view class="timeresult">处理完成时间：{{item.endTime}}</view>
+        <view class="timeresult">异常处理结果：{{item.resultText}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 家属界面 -->
+<view hidden="{{isworker}}">
+  <!-- 没有信息 -->
+  <view class="noinfo" hidden="{{unworkerlength}}">
+    <view class="noinfoimage">
+      <image mode="widthFix" src="/icons/noinfo.png"></image>
+    </view>
+    <view class="noinfotip">暂无异常记录</view>
+  </view>
+
+  <view class="errorlog" wx:for="{{errorlist}}" hidden="{{!unworkerlength}}"> 
+    <!-- 已经结束 -->
+    <view class="erroritem"  wx:if="{{item.endTime != null}}">
+      <view class="namesexbutton">
+        <view class="namesexinfo">
+          <view class="nameinfo">{{item.name}}</view>
+          <view class="sexinfo">
+            <image mode="widthFix" src="{{item['gender'] == '男' ? '/icons/male.png' : '/icons/female.png'}}"></image>
+          </view>
+        </view>
+        <view class="buttonview">
+          <button disabled size="mini" style="font-size: 32rpx">已完成</button>
+        </view>
+      </view>
+
+      <view class="place">
+        <view class="placeimage">
+          <image mode="widthFix" src="/icons/reasonplace.png"></image>
+        </view>
+        <view class="placedata">{{item.location}}</view>
+      </view>
+
+      <view class="reasonnurse">
+        <view class="reason">
+          <image mode="widthFix" src="/icons/reason.png"></image>
+          <view class="reasontype">{{item.type == 1 ? "数据异常" : "离床未归"}}</view>
+        </view>
+        <view class="nurse">
+          <image mode="widthFix" src="/icons/nurse.png"></image>
+          <view class="nursename">{{item.handler}}</view>
+        </view>
+      </view>
+
+      <view class="alltimeresult">
+        <view class="timeresult">事件发生时间：{{item.startTime}}</view>
+        <view class="timeresult">警报确认时间：{{item.enterTime}}</view>
+        <view class="timeresult">处理完成时间：{{item.endTime}}</view>
+        <view class="timeresult">异常处理结果：{{item.resultText}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/monitor/monitor",
+    "pages/scan/scan",
+    "pages/seniorinfo/seniorinfo",
+    "pages/report/report",
+    "pages/errorlist/errorlist",
+    "pages/handleresult/handleresult"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F4A460",
+    "navigationBarTitleText": "望一舟遥",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/monitor/monitor",
+        "text": "健康监测",
+        "iconPath": "/icons/monitor.png",
+        "selectedIconPath": "/icons/monitor_on.png"
+      },
+      {
+        "pagePath": "pages/scan/scan",
+        "text": "设备绑定",
+        "iconPath": "/icons/scan.png",
+        "selectedIconPath": "/icons/scan_on.png"
+      },
+      {
+        "pagePath": "pages/errorlist/errorlist",
+        "text": "异常列表",
+        "iconPath": "/icons/message.png",
+        "selectedIconPath": "/icons/message_on.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

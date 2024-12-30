@@ -1,0 +1,28 @@
+<!--pages/scan/scan.wxml-->
+<view class="background">
+    <image src="/icons/bg.png" mode="scaleToFill"></image>
+</view>
+
+<view>
+  <view class="scan">
+    <view class="scanimage">
+      <image mode="widthFix" src="/icons/scanlogo.png" bindtap='getScancode'></image>
+    </view>
+    <view class="scantip">扫码绑定设备</view>
+
+    <!-- <view wx:if="{{device !=''}}">
+      <view>扫码的内容:{{device}}</view>
+    </view> -->
+
+  </view>
+
+  <view class='component'>
+    <view class='inputbox'>
+      <input class='inputplace' bindinput="getInputValue" name="deviceID" type='text' placeholder="如扫码异常请输入设备号" value="{{inputdevice}}"></input>
+    </view>
+  </view>
+
+  <view class="buttonview">
+    <button size="mini" bindtap="enterbind" style="margin: 20rpx; font-size: 36rpx; color: gray;">确认绑定</button>
+  </view>
+</view>

@@ -1,0 +1,56 @@
+/* pages/login/login.wxss */
+.background image {
+  top: -0.1%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+}
+
+.login{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.app_icon image{
+  width: 600rpx;
+  border-radius: 50%;
+  border: 2rpx solid rgb(255, 255, 255);
+  overflow: hidden;
+  position: fixed;
+  top: 150rpx;
+  left: 375rpx;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.app_dspt{
+  position: fixed;
+  width: 100%;
+  top: 750rpx;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 540;
+}
+
+.login_btn{
+  position: fixed;
+  width: 65%;
+  top: 850rpx;
+  left: 50%;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 540;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+
+.agreement{
+  position: fixed;
+  width: 100%;
+  bottom: 5%;
+  text-align: center;
+  font-size: 30rpx;
+}

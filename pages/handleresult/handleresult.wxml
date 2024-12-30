@@ -1,0 +1,65 @@
+<!--pages/handleresult/handleresult.wxml-->
+<view class="background">
+    <image src="/icons/bg.png" mode="scaleToFill"></image>
+</view>
+
+<view>
+  <view class="erroritem">
+    <view class="namesexinfo">
+      <view class="nameinfo">{{name}}</view>
+        <view class="sexinfo">
+          <image mode="widthFix" src="{{gender == '男' ? '/icons/male.png' : '/icons/female.png'}}"></image>
+        </view>
+      </view>
+
+    <view class="place">
+      <view class="placeimage">
+        <image mode="widthFix" src="/icons/reasonplace.png"></image>
+      </view>
+      <view class="placedata">{{location}}</view>
+    </view>
+
+    <view class="reasonnurse">
+      <view class="reason">
+        <image mode="widthFix" src="/icons/reason.png"></image>
+        <view class="reasontype">{{type == 1 ? "数据异常" : "离床未归"}}</view>
+      </view>
+      <view class="nurse">
+        <image mode="widthFix" src="/icons/nurse.png"></image>
+        <view class="nursename">{{handler}}</view>
+      </view>
+    </view>
+
+    <view class="alltimeresult">
+      <view class="timeresult">事件发生时间：{{starttime}}</view>
+      <view class="timeresult">警报确认时间：{{entertime}}</view>
+    </view>
+  </view>
+
+  <view class="titleouter">
+    <view class="title">处理结果</view>
+  </view>
+
+  <view class="label">
+    <view class="labeltext">常用标签：</view>
+    <view class="labellist">
+      <view class="labelitem" wx:for="{{obtnArry}}">
+        <view class='label_view {{item.selected ? "active" : ""}}' data-value="{{item.name}}" bindtap='dealTap' checked="{{item.selected}}" data-index="{{index}}">
+          {{item.name}}
+        </view>
+      </view> 
+    </view>
+  </view>
+
+  <view class="tatext">*其他处理结果：</view>
+  <view class="contentView">
+    <view class="textarea_bg">
+      <textarea class="inputplace" type="text" bindinput="gettext" placeholder="若有其他情况说明，请自行输入"></textarea>
+    </view>
+  </view>
+
+  <view class="buttonview">
+    <button size="mini" style="margin: 20rpx; font-size: 36rpx; color: gray; padding: 10rpx; padding-left: 50rpx; padding-right: 50rpx" bindtap="handle">处理完成</button>
+  </view>
+</view>
+

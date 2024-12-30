@@ -1,0 +1,196 @@
+<!--pages/monitor/monitor.wxml-->
+<view class="background">
+    <image src="/icons/bg.png" mode="scaleToFill"></image>
+</view>
+
+<!-- 护工页面 -->
+<view hidden="{{!isworker}}" style="margin-top: 40rpx;">
+  <view style="display: flex; margin: 30rpx; text-align: center;">
+    <button size="mini" bindtap="start">开始监测</button>
+    <button size="mini" type="warn" bindtap="end">停止监测</button>
+  </view>
+  <!-- 异常情况 -->
+  <view class="titleouter">
+    <view class="title">监测情况</view>
+  </view>
+
+  <view class="list" wx:if="{{errors.length}}">
+    <view class="itemout" wx:for="{{errors}}" wx:key="id">
+      <view wx:if="{{item['enterTime'] != null}}">
+        <navigator class="buttonout" url="/pages/handleresult/handleresult?errorid={{item.id}}&name={{item.name}}&gender={{item.gender}}&seniorid={{item.seniorID}}&location={{item.location}}&handler={{item.handler}}&type={{item.type}}&starttime={{item.startTime}}&entertime={{item.enterTime}}">
+          <button size="mini" style="font-size: 32rpx; color:orange">待处理</button>
+        </navigator>
+      </view>
+      <view wx:if="{{item['enterTime'] == null}}">
+        <view class="buttonout" bindtap="enter" data-value="{{item.id}}">
+          <button size="mini" style="font-size: 32rpx; color:tomato">待确认</button>
+        </view>
+      </view>
+
+      <!-- <navigator class="buttonview" url="/pages/handleresult/handleresult?errorid={{item.id}}&name={{item.name}}&gender={{item.gender}}&seniorid={{item.seniorID}}&location={{item.location}}&handler={{item.handler}}&type={{item.type}}&starttime={{item.startTime}}&entertime={{item.enterTime}}">
+          <button size="mini" style="font-size: 32rpx; color:orange;">待处理</button>
+        </navigator> -->
+      
+      <navigator class="item" url="/pages/seniorinfo/seniorinfo?id={{item.seniorID}}">
+        <view class="namesexbutton">
+          <view class="namesex">
+            <view class="name">{{item["name"]}}</view>
+            <view class="seximage">
+              <image mode="widthFix" src="{{item['gender'] == '男' ? '/icons/male.png' : '/icons/female.png' }}"></image>
+            </view>
+          </view>
+
+        </view>
+
+        <view class="place">
+          <view class="placeimage">
+            <image mode="widthFix" src="/icons/place.png"></image>
+          </view>
+          <view class="placedata">{{item["location"]}}</view>
+        </view>
+<!-- 
+        <view class="timestate">
+          <view class="hbs">
+            <view class="hbsimage">
+              <image mode="widthFix" src="/icons/heart.png"></image>
+            </view>
+            <view class="innerdata">{{ismonitoring ? item["hearttime"] : "—"}}</view>
+          </view>
+
+          <view class="hbs">
+            <view class="hbsimage">
+              <image mode="widthFix" src="/icons/breath.png"></image>
+            </view>
+            <view class="innerdata">{{ismonitoring ? item["breathtime"] : "—"}}</view>
+          </view>
+
+          <view class="hbs">
+            <view class="hbsimage">
+              <image mode="widthFix" src="/icons/state.png"></image>
+            </view>
+            <view class="innerdata">{{ismonitoring ? item["bed_state"] : "—"}}</view>
+          </view>
+        </view> -->
+
+        <view class="error">
+            <view class="errorimage">
+              <image mode="widthFix" src="/icons/error.png"></image>
+            </view>
+            <view class="errorreason">{{item["type"] == 1 ? "数据异常" : "离床未归"}}</view>
+            <view class="errorreason">{{item["errorTime"]}}</view>
+        </view>
+
+      </navigator>
+
+    </view>
+  </view>
+
+  <view class="view_fengexian" wx:else>
+    <view></view>
+      <text class="text_fengexian">暂无异常信息</text>
+    <view></view>
+  </view>
+
+  <!-- 老人信息 -->
+  <view class="titleouter">
+    <view class="title">老人信息</view>
+  </view>
+  <view class="list" wx:if="{{seniors.length}}">
+    <navigator class="item" wx:for="{{seniors}}" wx:key="id" url="/pages/seniorinfo/seniorinfo?id={{item['id']}}">
+      <view class="namesexbutton">
+        <view class="namesex">
+          <view class="name">{{item["name"]}}</view>
+          <view class="seximage">
+            <image mode="widthFix" src="{{item['gender'] == '男' ? '/icons/male.png' : '/icons/female.png' }}"></image>
+          </view>
+        </view>
+      </view>
+
+      <view class="place">
+        <view class="placeimage">
+          <image mode="widthFix" src="/icons/place.png"></image>
+        </view>
+        <view class="placedata">{{item["location"]}}</view>
+      </view>
+
+      <view class="timestate">
+        <view class="hbs">
+          <view class="hbsimage">
+            <image mode="widthFix" src="/icons/heart.png"></image>
+          </view>
+          <view class="innerdata">{{ismonitoring ? item["hearttime"] : "—"}}</view>
+        </view>
+
+        <view class="hbs">
+          <view class="hbsimage">
+            <image mode="widthFix" src="/icons/breath.png"></image>
+          </view>
+          <view class="innerdata">{{ismonitoring ? item["breathtime"] : "—"}}</view>
+        </view>
+
+        <view class="hbs">
+          <view class="hbsimage">
+            <image mode="widthFix" src="/icons/state.png"></image>
+          </view>
+          <view class="innerdata">{{ismonitoring ? item["bed_state"] : "—"}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class="view_fengexian" wx:else>
+    <view></view>
+      <text class="text_fengexian">暂未绑定老人</text>
+    <view></view>
+  </view>
+</view>
+
+<!-- 家属页面 -->
+<view hidden="{{isworker}}" style="margin-top: 40rpx;">
+  <!-- 老人信息 -->
+  <view class="titleouter">
+    <view class="title">老人列表</view>
+  </view>
+  <view class="list" wx:if="{{seniors.length}}">
+    <navigator class="item" wx:for="{{seniors}}" wx:key="id" url="/pages/seniorinfo/seniorinfo?id={{item['id']}}">
+      <view class="namesexbutton" style="justify-content: space-between;">
+        <view class="namesex">
+          <view class="name">{{item["name"]}}</view>
+          <view class="seximage">
+            <image mode="widthFix" src="{{item['gender'] == '男' ? '/icons/male.png' : '/icons/female.png' }}"></image>
+          </view>  
+        </view>
+
+        <view class="timestate" style="align-items: center; margin-top: 20rpx;">
+            <view class="hbs" style="margin-right: 30rpx;">
+              <view class="hbsimage">
+                <image mode="widthFix" src="/icons/heart.png"></image>
+              </view>
+              <view class="innerdata">{{item["heart_rate"]}}</view>
+            </view>
+
+            <view class="hbs">
+              <view class="hbsimage">
+                <image mode="widthFix" src="/icons/breath.png"></image>
+              </view>
+              <view class="innerdata">{{item["breath_frequency"]}}</view>
+            </view>
+          </view>
+
+      </view>
+
+      <view class="place">
+        <view class="placeimage">
+          <image mode="widthFix" src="/icons/place.png"></image>
+        </view>
+        <view class="placedata">{{item["location"]}}</view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class="view_fengexian" wx:else>
+    <view></view>
+      <text class="text_fengexian">暂未绑定老人</text>
+    <view></view>
+  </view>
+</view>

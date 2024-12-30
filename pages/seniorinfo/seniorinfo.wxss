@@ -1,0 +1,261 @@
+/* pages/seniorinfo/seniorinfo.wxss */
+.background image {
+  top: -0.1%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+}
+
+.basicinfo {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.namesexinfo {
+  display: flex;
+}
+
+.nameinfo {
+  margin-top: 60rpx;
+  margin-left: 70rpx;
+  font-size: 56rpx;
+}
+
+.sexinfo image {
+  margin-top: 65rpx;
+  margin-bottom: 20rpx;
+  width: 72rpx;
+}
+
+.place {
+  display: flex;
+}
+
+.placeimage image {
+  margin-left: 60rpx;
+  width: 50rpx;
+}
+
+.placeinfo {
+  margin-left: 10rpx;
+  width: 350rpx;
+  font-size: 36rpx;
+}
+
+.imageinfo image {
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+  width: 180rpx;
+  border-radius: 90rpx;
+}
+
+.bghbstateinfo {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+  padding-bottom: 20rpx;
+  background-color: cornsilk;
+  border-radius: 30rpx;
+}
+
+.hbstateinfo {
+  display: flex;
+}
+
+.avgtime {
+  display: flex;
+  width: 220rpx;
+}
+
+.avgtimeimage image {
+  width: 60rpx;
+  margin-top: 30rpx;
+  margin-left: 40rpx;
+}
+
+.avgtimeinfo {
+  width: 150rpx;
+  margin-top: 35rpx;
+  margin-left: 30rpx;
+  font-size: 40rpx;
+}
+
+.error {
+  display: flex;
+}
+
+.errorimage image {
+  width: 60rpx;
+  margin-top: 30rpx;
+  margin-left: 70rpx;
+}
+
+.errorreason {
+  margin-top: 35rpx;
+  margin-left: 30rpx;
+  font-size: 40rpx;
+}
+
+.canvasimage {
+  display: flex;
+}
+
+.canvas {
+  margin-left: 25rpx;
+  width: 100%;
+  height: 500rpx;
+}
+
+.button {
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+}
+
+.canvas1_button{
+  background-color: honeydew;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border-radius: 30rpx;
+  margin-left: 170rpx;
+}
+
+.canvas1_text{
+  text-align: center;
+  font-size: 40rpx;
+}
+
+.canvas2_button{
+  background-color: honeydew;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border-radius: 30rpx;
+  margin-left: 130rpx;
+}
+
+.canvas2_text{
+  text-align: center;
+  font-size: 40rpx;
+}
+
+.titleouter {
+  margin: 20rpx;
+  margin-top: 50rpx;
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction:row;
+}
+
+.title {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  border-radius: 50rpx;
+  background-color: wheat;
+  text-align: center;
+  font-size: 36rpx;
+}
+
+.erroritem {
+  margin: 40rpx;
+  padding: 50rpx;
+  padding-left: 60rpx;
+  border-radius: 30rpx;
+  background-color:cornsilk;
+}
+
+.reasonnurse {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reason {
+  display: flex;
+  font-size: 32rpx;
+}
+
+.reason image {
+  width: 48rpx;
+}
+
+.reasontype {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.nurse {
+  display: flex;
+  margin-right: 20rpx;
+}
+
+.nurse image {
+  width: 48rpx;
+}
+
+.nursename {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.timeresult {
+  margin-top: 12rpx;
+  font-size: 32rpx;
+}
+
+.delete {
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.dataouter {
+  display: flex;
+  justify-content: right;
+  margin-left: 310rpx;
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  margin-right: 50rpx;
+}
+
+.data {
+  color: #8a8a8a;
+  font-size: 32rpx;
+}
+
+.dataimage {
+  display: flex;
+  align-items: center;
+}
+
+.dataimage image {
+  width: 50rpx;
+}
+
+.view_fengexian {
+  width: 96%;
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0rpx 2% 20rpx 2%;
+}
+
+.view_fengexian view {
+  width: 33%;
+  height: 2rpx;
+  background: linear-gradient(to right, #b649cc, #29ecdc);
+}
+
+.text_fengexian {
+  font-size: 26rpx;
+  color: gray;
+  margin: 0rpx 2% 0rpx 2%;
+}

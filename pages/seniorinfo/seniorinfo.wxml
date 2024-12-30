@@ -1,0 +1,235 @@
+<!--pages/seniorinfo/seniorinfo.wxml-->
+<view class="background">
+    <image src="/icons/bg.png" mode="scaleToFill"></image>
+</view>
+
+<view wx:if="{{isworker}}">
+  <view class="basicinfo">
+    <view class="basicinfowithoutimage">
+      <view class="namesexinfo">
+        <view class="nameinfo">{{seniorinfo["name"]}}</view>
+        <view class="sexinfo">
+          <image mode="widthFix" src="{{seniorinfo['gender'] == '男' ? '/icons/male.png' : '/icons/female.png' }}"></image>
+        </view>
+      </view>
+      <view class="place">
+        <view class="placeimage">
+          <image mode="widthFix" src="/icons/place.png"></image>
+        </view>
+        <view class="placeinfo">{{seniorinfo["location"]}}</view>
+      </view>
+    </view>
+    <view class="imageinfo">
+      <image mode="widthFix" src="{{seniorinfo['gender'] == '男' ? '/icons/seniorman.png' : '/icons/senior.png'}}"></image>
+    </view>
+  </view>
+
+  <view class="bghbstateinfo">
+    <view class="hbstateinfo" style="justify-content: space-around;">
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/heart.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{seniorinfo["heart_rate"]}}</view>
+      </view>
+      
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/breath.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{seniorinfo["breath_frequency"]}}</view>
+      </view>
+    </view>
+  </view>
+<!--   
+  <view class="bghbstateinfo">
+    <view class="hbstateinfo">
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/heart.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{ismonitoring ? seniorinfo["breathtime"] : "—"}}</view>
+      </view>
+      
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/breath.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{ismonitoring ? seniorinfo["breathtime"] : "—"}}</view>
+      </view>
+
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/state.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{ismonitoring ? seniorinfo["bed_state"] : "—"}}</view>
+      </view>
+    </view>
+
+    <view class="hbstateinfo">
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/avgheart.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{seniorinfo["heart_rate"]}}</view>
+      </view>
+      
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/avgbreath.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{seniorinfo["breath_frequency"]}}</view>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- <view class="error" wx:if="{{haveerror}}">
+      <view class="errorimage">
+        <image mode="widthFix" src="/icons/error.png"></image>
+      </view>
+      <view class="errorreason">离床未归</view>
+      <view class="errorreason">10min45s</view>
+  </view> -->
+
+  <!-- <view hidden="{{!ismonitoring}}">
+    <view class="button">
+      <view class = "canvas1_button" bindtap="canvas1_click" >
+        <text style="color:{{textcolor1}}" class="canvas1_text">心率</text>
+      </view>
+      <view class = "canvas2_button" bindtap="canvas2_click" >
+        <text style="color:{{textcolor2}}" class="canvas2_text">呼吸</text>
+      </view>
+    </view>
+
+    <view class="canvasimage">
+      <canvas class="canvas" canvas-id="lineCanvas" disable-scroll="true" bindtouchstart="touchcanvas"></canvas>
+    </view>
+  </view> -->
+
+  <navigator class="dataouter" url="/pages/report/report?id={{seniorinfo['id']}}">
+    <view class="data">点击查看历史监测数据</view>
+    <view class="dataimage">
+      <image mode="widthFix" src="/icons/retail.png"></image>
+    </view>
+  </navigator>
+
+  <view class="titleouter">
+    <view class="title">异常记录</view>
+  </view>
+  
+  <view class="view_fengexian" hidden="{{errorlength}}">
+    <view></view>
+      <text class="text_fengexian">暂无异常记录</text>
+    <view></view>
+  </view>
+
+  <view class="errorlog" wx:for="{{errorlist}}" wx:key="{{id}}"> <!--  wx:for -->
+    <view class="erroritem" wx:if="{{item.enterTime != null}}">
+      <view class="reasonnurse">
+        <view class="reason">
+          <image mode="widthFix" src="/icons/reason.png"></image>
+          <view class="reasontype">{{item.type == 1 ? "数据异常": "离床未归"}}</view>
+        </view>
+        <view class="nurse">
+          <image mode="widthFix" src="/icons/nurse.png"></image>
+          <view class="nursename">{{item.handler != null ? item.handler : "—"}}</view>
+        </view>
+      </view>
+
+      <view class="alltimeresult">
+        <view class="timeresult">事件发生时间：{{item.startTime}}</view>
+        <view class="timeresult">警报确认时间：{{item.enterTime}}</view>
+        <view class="timeresult">处理完成时间：{{item.endTime}}</view>
+        <view class="timeresult">异常处理结果：{{item.resultText != null ? item.resultText : "—"}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="delete">
+    <button type="warn" bindtap="delete">解除绑定</button>
+  </view>
+</view>
+
+<!-- 家属页面 -->
+<view wx:else>
+  <view class="basicinfo">
+    <view class="basicinfowithoutimage">
+      <view class="namesexinfo">
+        <view class="nameinfo">{{seniorinfo["name"]}}</view>
+        <view class="sexinfo">
+          <image mode="widthFix" src="{{seniorinfo['gender'] == '男' ? '/icons/male.png' : '/icons/female.png'}}"></image>
+        </view>
+      </view>
+      <view class="place">
+        <view class="placeimage">
+          <image mode="widthFix" src="/icons/place.png"></image>
+        </view>
+        <view class="placeinfo">{{seniorinfo["location"]}}</view>
+      </view>
+    </view>
+    <view class="imageinfo">
+      <image mode="widthFix" src="{{seniorinfo['gender'] == '男' ? '/icons/seniorman.png' : '/icons/senior.png'}}"></image>
+    </view>
+  </view>
+
+  <view class="bghbstateinfo">
+    <view class="hbstateinfo" style="justify-content: space-around;">
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/heart.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{seniorinfo["heart_rate"]}}</view>
+      </view>
+      
+      <view class="avgtime">
+        <view class="avgtimeimage">
+          <image mode="widthFix" src="/icons/breath.png"></image>
+        </view>
+        <view class="avgtimeinfo">{{seniorinfo["breath_frequency"]}}</view>
+      </view>
+    </view>
+  </view>
+
+  <navigator class="dataouter" url="/pages/report/report?id={{seniorinfo['id']}}">
+    <view class="data">点击查看历史监测数据</view>
+    <view class="dataimage">
+      <image mode="widthFix" src="/icons/retail.png"></image>
+    </view>
+  </navigator>
+
+  <view class="titleouter">
+    <view class="title">异常记录</view>
+  </view>
+
+  <view class="view_fengexian" hidden="{{errorlength}}">
+    <view></view>
+      <text class="text_fengexian">暂无异常记录</text>
+    <view></view>
+  </view>
+
+  <view class="errorlog" wx:for="{{errorlist}}" wx:key="{{id}}"> <!--  wx:for -->
+    <view class="erroritem" wx:if="{{item.enterTime != null}}">
+      <view class="reasonnurse">
+        <view class="reason">
+          <image mode="widthFix" src="/icons/reason.png"></image>
+          <view class="reasontype">{{item.type == 1 ? "数据异常": "离床未归"}}</view>
+        </view>
+        <view class="nurse">
+          <image mode="widthFix" src="/icons/nurse.png"></image>
+          <view class="nursename">{{item.handler != null ? item.handler : "—"}}</view>
+        </view>
+      </view>
+
+      <view class="alltimeresult">
+        <view class="timeresult">事件发生时间：{{item.startTime}}</view>
+        <view class="timeresult">警报确认时间：{{item.enterTime}}</view>
+        <view class="timeresult">处理完成时间：{{item.endTime}}</view>
+        <view class="timeresult">异常处理结果：{{item.resultText != null ? item.resultText : "—"}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="delete">
+    <button type="warn" bindtap="delete">解除绑定</button>
+  </view>
+</view>

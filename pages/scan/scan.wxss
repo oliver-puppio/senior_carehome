@@ -1,0 +1,77 @@
+/* pages/scan/scan.wxss */
+.background image {
+  top: -0.1%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+}
+
+.scan {
+  margin-top: 180rpx;
+}
+
+.scanimage {
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.scanimage image {
+  width: 320rpx;
+  background-color: cornsilk;
+  border-radius: 50%;
+  border: 6rpx solid wheat ;
+  padding: 20rpx;
+}
+
+.scantip {
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 36rpx;
+  margin: 50rpx;
+}
+
+.component {
+  display: flex;
+}
+ 
+.inputbox {
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  border: 2px solid darkgray;
+  width: 700rpx;
+  border-radius: 30rpx;
+  height: 70rpx;
+  background: rgba(248, 248, 248);
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.inputplace {
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  vertical-align: middle;
+  width: 500rpx;
+  margin-left: 10px;
+  display: inline-block;
+  height: 60rpx;
+  margin-top: 5rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.buttonview {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rpx;
+}

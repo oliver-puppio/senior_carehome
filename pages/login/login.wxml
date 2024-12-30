@@ -1,0 +1,18 @@
+<!--pages/login/login.wxml-->
+<view class="background">
+    <image src="/icons/bg.png" mode="scaleToFill"></image>
+</view>
+
+<!-- 未登录时显示的授权页 -->
+<view class="login">
+  <view  class="welcome">
+    <!-- 小程序图标 -->
+    <view class="app_icon">
+      <image mode="widthFix" src="/icons/logo.png"></image>
+    </view>
+    <!-- 授权提示 -->
+    <view class="app_dspt">智慧养老——安睡无忧</view>
+    <!-- 登录按钮 -->
+    <button class="login_btn" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>微信授权登录</button>
+  </view> 
+</view>

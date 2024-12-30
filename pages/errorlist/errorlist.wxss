@@ -1,0 +1,128 @@
+/* pages/errorlist/errorlist.wxss */
+.background image {
+  top: -0.1%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+}
+
+.erroritem {
+  margin: 40rpx;
+  padding: 50rpx;
+  padding-top: 40rpx;
+  padding-left: 60rpx;
+  border-radius: 30rpx;
+  background-color:cornsilk;
+}
+
+.reasonnurse {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reason {
+  display: flex;
+  font-size: 32rpx;
+}
+
+.reason image {
+  width: 48rpx;
+}
+
+.reasontype {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.nurse {
+  display: flex;
+  margin-right: 20rpx;
+}
+
+.nurse image {
+  width: 48rpx;
+}
+
+.nursename {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.timeresult {
+  margin-top: 12rpx;
+  font-size: 32rpx;
+}
+
+.namesexbutton {
+  display: flex;
+  margin-bottom: 5rpx;
+  justify-content: space-between;
+}
+
+.namesexinfo {
+  display: flex;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.nameinfo {
+  font-size: 48rpx;
+}
+
+.sexinfo image {
+  width: 60rpx;
+}
+
+.buttonview {
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.place {
+  display: flex;
+  padding-bottom: 10rpx;
+}
+
+.placeimage image {
+  width: 32rpx;
+}
+
+.placedata {
+  padding-left: 10rpx;
+  font-size: 24rpx;
+  color:gray;
+}
+
+.noinfo {
+  margin-top: 200rpx;
+}
+
+.noinfoimage {
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.noinfoimage image {
+  width: 150rpx;
+  background-color: cornsilk;
+  border-radius: 50%;
+  border: 6rpx solid wheat ;
+  padding: 40rpx;
+}
+
+.noinfotip {
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 32rpx;
+  margin: 30rpx;
+}

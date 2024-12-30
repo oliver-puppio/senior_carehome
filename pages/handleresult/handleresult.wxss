@@ -1,0 +1,209 @@
+/* pages/handleresult/handleresult.wxss */
+.background image {
+  top: -0.1%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -2;
+}
+
+.erroritem {
+  margin: 40rpx;
+  padding: 50rpx;
+  padding-top: 40rpx;
+  padding-left: 60rpx;
+  border-radius: 30rpx;
+  background-color:cornsilk;
+}
+
+.reasonnurse {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reason {
+  display: flex;
+  font-size: 32rpx;
+}
+
+.reason image {
+  width: 48rpx;
+}
+
+.reasontype {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.nurse {
+  display: flex;
+  margin-right: 20rpx;
+}
+
+.nurse image {
+  width: 48rpx;
+}
+
+.nursename {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.timeresult {
+  margin-top: 12rpx;
+  font-size: 32rpx;
+}
+
+.namesexbutton {
+  display: flex;
+  margin-bottom: 5rpx;
+  justify-content: space-between;
+}
+
+.namesexinfo {
+  display: flex;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.nameinfo {
+  font-size: 48rpx;
+}
+
+.sexinfo image {
+  width: 60rpx;
+}
+
+.place {
+  display: flex;
+  padding-bottom: 10rpx;
+}
+
+.placeimage image {
+  width: 32rpx;
+}
+
+.placedata {
+  padding-left: 10rpx;
+  font-size: 24rpx;
+  color:gray;
+}
+
+.titleouter {
+  margin: 20rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction:row;
+}
+
+.title {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  border-radius: 50rpx;
+  background-color: wheat;
+  text-align: center;
+  font-size: 36rpx;
+}
+
+.input {
+  vertical-align: middle;
+  width: 500rpx;
+  margin-left: 10px;
+  display: inline-block;
+  height: 60rpx;
+  margin-top: 5rpx;
+  font-size: 24rpx;
+}
+
+
+.inputplace {
+  height: 200rpx;
+}
+
+.contentView{
+  display: flex;
+}
+
+.textarea_bg{
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  border: 2px solid darkgray;
+  width: 700rpx;
+  border-radius: 30rpx;
+  height: 200rpx;
+  background: rgba(248, 248, 248);
+  text-align: center;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  color: gray;
+}
+
+.tatext {
+  margin-left: 50rpx;
+  margin-bottom: 20rpx;
+}
+
+.buttonview {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rpx;
+}
+
+.label {
+  margin: 40rpx;
+}
+
+.labeltext {
+  margin-left: 15rpx;
+}
+
+.label_view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rpx 10rpx;
+  width: 160rpx;
+  height: 50rpx;
+  border: 1rpx solid darkgray;
+  font-size: 26rpx;
+  border-radius: 12rpx;
+  color: rgb(114, 107, 107);
+  margin-right: 5rpx;
+  margin-top: 15rpx;
+}
+
+.labellist{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.labelitem{
+  margin: 10rpx 15rpx;
+  font-size: 26rpx;
+  color: rgb(99, 95, 95);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn_view text{
+  display: flex;
+  align-items: center;
+}
+
+.active{
+  background: moccasin;
+}

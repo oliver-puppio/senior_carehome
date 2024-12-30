@@ -1,0 +1,46 @@
+<!--pages/report/report.wxml-->
+<!-- <view class="background">
+    <image src="/icons/bg.png" mode="scaleToFill"></image>
+</view> -->
+
+<view>
+  <!-- <view class="flex nav">
+  	<view class="nav-item  {{index==current?'text-selected current':''}}" wx:for="{{tabs}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+  		{{item}}
+  	</view>
+  </view> -->
+  <view class="slideno" hidden="{{havedata}}">
+    <view class="slidetime">{{date_time}}</view>
+  </view>
+
+  <view class="slide" hidden="{{!havedata}}">
+    <view class="slideimage" bindtap="minus">
+      <image mode="widthFix" src="/icons/left.png"></image>
+    </view>
+  
+    <view class="slidetime">{{date_time}}</view>
+
+    <view class="slideimage" bindtap="add">
+      <image mode="widthFix" src="/icons/right.png"></image>
+    </view>
+  </view>
+
+  <view class="time" hidden="{{!havedata}}">监测时间：{{startTime}} ~ {{endTime}}</view>
+
+  <view wx:if="{{havedata}}">
+    <view class="canvasimage">
+      <canvas class="canvas" canvas-id="lineCanvas1" disable-scroll="true" bindtouchstart="touchcanvas0"></canvas>
+    </view>
+
+    <view class="canvasimage">
+      <canvas class="canvas" canvas-id="lineCanvas2" disable-scroll="true" bindtouchstart="touchcanvas1"></canvas>
+    </view>
+  </view>
+
+  <!-- <view class="view_fengexian" wx:else>
+    <view></view>
+      <text class="text_fengexian">暂无当天数据</text>
+    <view></view>
+  </view> -->
+
+</view>
